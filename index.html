@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Dynamic Checkbox Filters in AngularJS</title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div ng-app='angularDemo' ng-cloak>
+  <md-toolbar layout-padding>
+    <h2>Epistolarium Graeco-Latinum</h2>
+  </md-toolbar>
+  <div layout="row" ng-controller="angularController as ctrl">
+    <div flex="20" class="sidebar" layout-padding>
+      <div ng-repeat="filter in Filters">
+        <h3 class="sort">{{filter.name}}</h3>
+        <ul class="sortoptions">
+          <li ng-repeat="option in filter.options">
+            <input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded"> {{option.value}}
+            <span>({{option.count}})</span>
+          </li>
+        </ul>
+      </div>
+      <md-button class="md-raised" ng-click="ctrl.toggleAll($event, false)">Uncheck All</md-button>
+      <br/>
+      <md-button class="md-raised" ng-click="ctrl.toggleAll($event, true)">Check All</md-button>
+   </div>
+    <div flex="50" layout="row">
+      <md-card flex ng-repeat="fruit in Fruits | dynamicFilter:Filters:this" class="product">
+        {{fruit.name}}
+      </md-card>
+    </div>
+  </div>
+</div>
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
