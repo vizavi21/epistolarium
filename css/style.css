@@ -20,5 +20,9 @@
   margin: 20px;
   padding: 20px;
   text-align: center;
-  background-color: #eee;
+  background-color: #fff;
+}
+
+ul {
+list-style-type:none;
 }
