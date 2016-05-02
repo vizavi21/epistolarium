@@ -11,7 +11,9 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
  
-
+<!-- Font Awesome-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+      
 <!-- Angular Material -->    
     <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css'>
 
@@ -25,35 +27,39 @@
     <div class="container-fluid">
         
     <div ng-app='angularDemo' ng-cloak>
+        <!--Page header -->
         <div class="page-header">
             <h1>Epistolarium Graeco-Latinum <small>Letters in Late Medieval Mediterranean</small></h1>
         </div>
-  <div class="row" ng-controller="angularController as ctrl">
-    <div class="col-md-3" class="sidebar">
-        <!-- Checking Buttons -->
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event, true)">Check All</button>
-                
+        
+        <!--Begins Main Row -->
+        <div class="row" ng-controller="angularController as ctrl">
+        <!-- Sidebar -->
+            <div class="col-md-3" class="sidebar">
+                <!-- Checking Buttons -->
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event,                                  true)">Check All</button>
+
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event,                                  false)">Uncheck All</button>
+                    </div>
             </div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event, false)">Uncheck All</button>
-            </div>
-        </div>
-        <!-- End Checking Buttons -->
+                <!-- End Checking Buttons -->
             
-      <div ng-repeat="filter in Filters">
-        <h3 class="sort">{{filter.name}}</h3>
-        <ul class="sortoptions">
-          <li ng-repeat="option in filter.options">
-            <input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded"> {{option.value}}
-            <span>({{option.count}})</span>
-          </li>
-        </ul>
-      </div>
+        <div ng-repeat="filter in Filters">
+            <h3 class="sort">{{filter.name}}</h3>
+                <ul class="sortoptions">
+                    <li ng-repeat="option in filter.options">
+                        <input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded">                         {{option.value}}
+                        <span>({{option.count}})</span>
+                    </li>
+                </ul>
+        </div>
       
-   </div>
-    <div class="col-md-9">
+            </div>
+            <div class="col-md-9">
         
         <div class="panel panel-default">
   <div class="panel-body" ng-repeat="fruit in Fruits | dynamicFilter:Filters:this" class="product">
@@ -110,12 +116,12 @@
 <script src='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js'></script>
 
-        <script src="js/index.js"></script>
- <!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- Script -->
+<script src="js/index.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
   </body>
 </html>
