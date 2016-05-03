@@ -1,52 +1,45 @@
-angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
-angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
+var app = angular.module('plunker', []);
 
-  $scope.items = ['item1', 'item2', 'item3'];
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $routeProvider.
+      when('/jobs', {templateUrl: 'jobs-partial.html',   controller: JobsCtrl }).
+      when('/invoices', {templateUrl: 'invoices-partial.html',   controller: InvoicesCtrl }).
+      when('/payments', {templateUrl: 'payments-partial.html',   controller: PaymentsCtrl }).
+      otherwise({redirectTo: '/jobs'});
+      
+      // make this demo work in plunker
+      $locationProvider.html5Mode(false);
+}]);
 
-  $scope.animationsEnabled = true;
+function TabsCtrl($scope, $location) {
+  $scope.tabs = [
+      { link : '#/jobs', label : 'Jobs' },
+      { link : '#/invoices', label : 'Invoices' },
+      { link : '#/payments', label : 'Payments' }
+    ]; 
+    
+  $scope.selectedTab = $scope.tabs[0];    
+  $scope.setSelectedTab = function(tab) {
+    $scope.selectedTab = tab;
+  }
+  
+  $scope.tabClass = function(tab) {
+    if ($scope.selectedTab == tab) {
+      return "active";
+    } else {
+      return "";
+    }
+  }
+}
 
-  $scope.open = function (size) {
+function JobsCtrl($scope) {
+  
+}
 
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
+function InvoicesCtrl($scope) {
+  
+}
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
-  };
-
-});
-
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
-
-angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});
+function PaymentsCtrl($scope) {
+  
+}
