@@ -20,6 +20,8 @@
 <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tab.css">
+<!-- FOnts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
 
   </head>
 
@@ -36,75 +38,105 @@
         <div class="row" ng-controller="angularController as ctrl">
         <!-- Sidebar -->
             <div class="col-md-3" class="sidebar">
-                <!-- Checking Buttons -->
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event,                                  true)">Check All</button>
-
+                
+                    <!--Intermediary section-->
+                    <div>
+                        <h4><i class="fa fa-list-alt" aria-hidden="true"></i><span></span> Choose from the following criteria </h4>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event,                                  false)">Uncheck All</button>
-                    </div>
-            </div>
-                <!-- End Checking Buttons -->
             
+                
+         <!--Filter and Sort Array-->   
         <div ng-repeat="filter in Filters">
             <h3 class="sort">{{filter.name}}</h3>
                 <ul class="sortoptions">
                     <li ng-repeat="option in filter.options">
-                        <input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded">                         {{option.value}}
-                        <span>({{option.count}})</span>
+                        <p><input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded"><span> </span>{{option.value}}<span>({{option.count}})</span></p>
                     </li>
                 </ul>
-        </div>
+        </div><!--End Filter-->
+            
+            <!-- Checking Buttons -->
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event,                                  true)">Check All</button>
+
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" ng-click="ctrl.toggleAll($event,                                  false)">Uncheck All</button>
+                            </div>
+                    </div><!-- End Checking Buttons -->
+
       
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
         
         <div class="panel panel-default">
   <div class="panel-body" ng-repeat="fruit in Fruits | dynamicFilter:Filters:this" class="product">
-            <h3>From: {{fruit.name}} </h3> </br>
+            <h3><i class="fa fa-envelope-square" aria-hidden="true"></i> {{fruit.name}} </h3> </br>
            
             
             <!-- Begins Toggle Tabs-->
             <div ng-cloak="" class="tabsdemoDynamicHeight" ng-app="MyApp">
-  <md-content>
-    <md-tabs md-dynamic-height="" md-border-bottom="">
-      <md-tab label="one">
-        <md-content class="md-padding">
-          <h1 class="md-display-2">Tab One</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-        </md-content>
-      </md-tab>
-      <md-tab label="two">
-        <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Two</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-          <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-        </md-content>
-      </md-tab>
-      <md-tab label="three">
-        <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Three</h1>
-          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
-</div>
+                  <md-content>
+                    <md-tabs md-dynamic-height="" md-border-bottom="">
+                      <md-tab label="one">
+                        <md-content class="md-padding">
+                          <h1 class="md-display-2"><i class="fa fa-book" aria-hidden="true"></i></h1>
+                            <p>Content: {{fruit.content}}</p>
+                        </md-content>
+                      </md-tab>
+                      <md-tab label="two">
+                        <md-content class="md-padding">
+                          <h1 class="md-display-2">Tab Two</h1>
+                          <p>Sender: {{fruit.sender}}</p>
+                            
 
-            <!-- Ends toggle tabs-->
-  
+                        </md-content>
+                      </md-tab>
+                      <md-tab label="three">
+                        <md-content class="md-padding">
+                          <h1 class="md-display-2">Connections</h1>
+                          <p class="red">{{fruit.connectedWith}}</p>
+                        </md-content>
+                      </md-tab>
+                      <md-tab label="location">
+                        <md-content class="md-padding">
+                          <h1 class="md-display-2"><i class="fa fa-map-marker" aria-hidden="true"></i></h1>
+                          <p class="red">{{fruit.connectedWith}}</p>
+                        </md-content>
+                      </md-tab>
+                    </md-tabs>
+                  </md-content>
+</div><!-- Ends toggle tabs-->
+  </div> <!--End Panel-body-->
+  </div> <!--End Panel Panel-->
+      
+    </div><!-- End Main Body-->
+        <div class="col-md-3"> <!--Begin Lateral About section-->
+                        <ul class="nav nav-tabs" id="myTab">
+			  <li class="active"><a data-target="#home" data-toggle="tab"><i class="fa fa-info" aria-hidden="true"></i></a></li>
+			  <li><a data-target="#people" data-toggle="tab"><i class="fa fa-users" aria-hidden="true"></i></a></li>
+			  <li><a data-target="#resources" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a></li>
+			  <li><a data-target="#messages" data-toggle="tab"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a></li>
+			  <li><a data-target="#issues" data-toggle="tab"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+			  
+			</ul>
 
-  </div>
-  
-</div>
-        
-        
-    </div>
-  </div>
-</div>
+			<div class="tab-content">
+			  <div class="tab-pane active" id="home">
+                  <h3>About</h3>
+                  <p>The aim is to build and expand a dynamic fully-accessible collection of Byzantine and humanist letters that document the connections between Byzantines and Latins in the late medieval Eastern Mediterranean. The website puts together resources scattered in a variety of books and studies that cannot be easily accessed. Each item in the collection has the format of a card with the summary of a letter and related information structured according to several tabs. The collection provides: An *exhaustive* list of letters relevant for the study of the trans-national connections across the Mediterranean. Filtering and sorting options according to the following criteria: language, type/genre of letter, author, addressee, year of production. Biographies Historical introductions Bibliographical lists Technology in use: Epistolarium was built with AngularJs 1.x and AngularMaterial .The collection of letters, the attached information, and the filtering criteria are included in a Javascript array of objects. Access to the data in the array is made through Angular directives and expressions. The filtering options depend on the properties key in the array. You can check and download the source-code on Github.</p>
+                
+              </div>
+			  <div class="tab-pane" id="people">People-authors</div>
+			  <div class="tab-pane" id="resources">Resources</div>
+			  <div class="tab-pane" id="messages">Message</div>
+			  <div class="tab-pane" id="issues">Issues and things to do</div>
+			  
+			</div>
+        </div> <!--End lateral About Section-->
+  </div><!--End row-->
+</div><!--End ng app-->
       <div class="panel-footer">
           
           Panel footer
