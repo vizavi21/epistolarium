@@ -4,7 +4,22 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Epistolarium Graeco-Latinum</title>
-    
+ 
+<!--Angular-->
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js'></script>
+
+<!-- Script -->
+<script src="js/index.js"></script>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -19,8 +34,8 @@
 
 <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/tab.css">
-<!-- FOnts -->
+    
+<!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
 
   </head>
@@ -31,29 +46,31 @@
     <div ng-app='angularDemo' ng-cloak>
         <!--Page header -->
         <div class="page-header">
-            <h1>Epistolarium Graeco-Latinum <small>Letters in Late Medieval Mediterranean</small></h1>
+            <h1>Epistolarium Graeco-Latinum </h1><h3>Letters in Late Medieval Mediterranean</h3>
         </div>
         
         <!--Begins Main Row -->
         <div class="row" ng-controller="angularController as ctrl">
         <!-- Sidebar -->
-            <div class="col-md-3" class="sidebar">
+            <div class="col-md-3">
                 
                     <!--Intermediary section-->
                     <div>
-                        <h4><i class="fa fa-list-alt" aria-hidden="true"></i><span></span> Choose from the following criteria </h4>
+                        <h4><i class="fa fa-list-alt" aria-hidden="true"></i><span></span> Select criteria</h4>
                     </div>
             
                 
-         <!--Filter and Sort Array-->   
-        <div ng-repeat="filter in Filters">
-            <h3 class="sort">{{filter.name}}</h3>
-                <ul class="sortoptions">
-                    <li ng-repeat="option in filter.options">
-                        <p><input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded"><span> </span>{{option.value}}<span>({{option.count}})</span></p>
-                    </li>
-                </ul>
-        </div><!--End Filter-->
+                    <!--Filter and Sort Array-->   
+                    <div ng-repeat="filter in Filters">
+                        <h3>{{filter.name}}</h3>
+
+                                <ul class="sortoptions">
+                                <li ng-repeat="option in filter.options">
+                                    <p class="parafilter"><input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded"><span> </span>{{option.value}}<span>({{option.count}})</span></p>
+                                </li>
+                                </ul>
+
+                    </div><!--End Filter-->
             
             <!-- Checking Buttons -->
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -114,8 +131,8 @@
     </div><!-- End Main Body-->
         <div class="col-md-3"> <!--Begin Lateral About section-->
                         <ul class="nav nav-tabs" id="myTab">
-			  <li class="active"><a data-target="#home" data-toggle="tab"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-			  <li><a data-target="#people" data-toggle="tab"><i class="fa fa-users" aria-hidden="true"></i></a></li>
+			  <li><a data-target="#home" data-toggle="tab"><i class="fa fa-info" aria-hidden="true"></i></a></li>
+			  <li class="active"><a data-target="#people" data-toggle="tab"><i class="fa fa-users" aria-hidden="true"></i></a></li>
 			  <li><a data-target="#resources" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a></li>
 			  <li><a data-target="#messages" data-toggle="tab"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a></li>
 			  <li><a data-target="#issues" data-toggle="tab"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
@@ -123,12 +140,16 @@
 			</ul>
 
 			<div class="tab-content">
-			  <div class="tab-pane active" id="home">
+			  <div class="tab-pane" id="home">
                   <h3>About</h3>
                   <p>The aim is to build and expand a dynamic fully-accessible collection of Byzantine and humanist letters that document the connections between Byzantines and Latins in the late medieval Eastern Mediterranean. The website puts together resources scattered in a variety of books and studies that cannot be easily accessed. Each item in the collection has the format of a card with the summary of a letter and related information structured according to several tabs. The collection provides: An *exhaustive* list of letters relevant for the study of the trans-national connections across the Mediterranean. Filtering and sorting options according to the following criteria: language, type/genre of letter, author, addressee, year of production. Biographies Historical introductions Bibliographical lists Technology in use: Epistolarium was built with AngularJs 1.x and AngularMaterial .The collection of letters, the attached information, and the filtering criteria are included in a Javascript array of objects. Access to the data in the array is made through Angular directives and expressions. The filtering options depend on the properties key in the array. You can check and download the source-code on Github.</p>
                 
               </div>
-			  <div class="tab-pane" id="people">People-authors</div>
+			  <div class="tab-pane active" id="people">People-authors
+              <!--Start Search -->
+                    
+              <!--ENd Search-->
+              </div>
 			  <div class="tab-pane" id="resources">Resources</div>
 			  <div class="tab-pane" id="messages">Message</div>
 			  <div class="tab-pane" id="issues">Issues and things to do</div>
@@ -143,22 +164,6 @@
       </div>
 </div>      
 
-<!--Angular-->
-<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
-<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js'></script>
-<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js'></script>
-<script src='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js'></script>
-
-
-
-<!-- Script -->
-<script src="js/index.js"></script>
-
-
-<!-- Bootstrap core JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
   </body>
 </html>
