@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #EEEFF7;
 }
 
 p {
@@ -26,10 +26,9 @@ p {
 
 /* Sidebar*/
 .col-md-3 {
-  float: left;
-  text-transform: capitalize;
-  
-}
+    float: left;
+    text-transform: capitalize;
+    }
 .col-md-3 h3 {
   margin-bottom: 0px;
   color:#92CDCF;
@@ -55,10 +54,10 @@ p {
 /*End col-md-3*/
 
 /*Central panel*/
-.col-md-6 {
-    background-color: #EEEFF7;
-}
 
+.panel {
+    background: #EEEFF7;
+}
 .product {
   max-width: 210px;
   height: 90px;
@@ -72,21 +71,24 @@ p {
 /*Tabs*/
 
 .tabsdemoDynamicHeight md-content {
-  background-color: transparent !important; }
+  background-color: #92CDCF; 
+}
 
   .tabsdemoDynamicHeight md-content md-tabs {
-    background: lightgrey;
-    border: 1px solid lightgrey; 
-    }
-
-    .tabsdemoDynamicHeight md-content md-tabs md-tabs-canvas md-padding {
-      background: white; } 
-    p.red {
-        color: red;
+    background: #92CDCF;
+    border: 2px solid lightgrey; 
     }
     
- .md-tab:first-child{background: lightgrey; } 
- .md-tab:nth-child(2){background: lightgrey; } 
- .md-tab:nth-child(3){background: lightgrey; } 
+
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-canvas md-padding {
+      background-color: #445878; } 
+    p.connections {
+        color: #1C1D21;
+    }
+    
+ .md-tab:first-child{background: #92CDCF; font-weight: bold; font-family: "Lato";  text-transform: capitalize; color: #445878; font-size: 1.3em;} 
+ .md-tab:nth-child(2){background: #92CDCF; font-weight: bold; font-family: "Lato";  text-transform: capitalize; color: #445878; font-size: 1.3em;} 
+ .md-tab:nth-child(3){background: #92CDCF; font-weight: bold; font-family: "Lato";  text-transform: capitalize; color: #445878; font-size: 1.3em;} 
+ .md-tab:nth-child(4){background: #92CDCF; font-weight: bold; font-family: "Lato";  text-transform: capitalize; color: #445878; font-size: 1.3em;} 
 
 /*End tab*/
